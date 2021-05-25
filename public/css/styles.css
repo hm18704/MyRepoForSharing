@@ -1,0 +1,30 @@
+
+html.stopwatch-mode .app{
+	transform: translate(-100vw);
+	-webkit-transform: translate(-100vw);
+}
+
+
+
+/*-----------------------
+	Stopwatch
+-----------------------*/
+
+.stopwatch form {
+	padding: 0;
+	line-height: 85px;
+}
+
+.stopwatch form a{
+	color: #0059bc;
+	margin-bottom: 0;
+}
+
+.stopwatch .clock{
+	max-width: 800px;
+}
+
+
+
+
+

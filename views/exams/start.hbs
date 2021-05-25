@@ -1,0 +1,79 @@
+<h3  style="color:#5a2f2f">  </h3>
+
+
+
+  {{> _image_help}}
+
+<div class="row">
+    <div class="col s12 m8">
+        
+        <div class="card story">
+            <div class="card-content">
+                
+                 {{{displayQuestion questionResult myUser}}}
+            </div>
+        </div>
+        
+
+       
+    </div>
+    <div class="col s12 m4">
+        <div class="card center-align">
+            <div class="card-content">
+            <a id="chatLink" href="" target="popup"
+                 onclick="window.open('https://cryptic-chamber-30798.herokuapp.com/'+'{{exam.user._id}}','popup','width=600,height=600'); return false;"
+                class="btn-floating btn-large waves-effect waves-light green"><i class="fas fa-phone-alt"></i></a>
+                </div>
+            <div class="card-content" style="text-align:right;">
+                <span class="card-title" ><i class="fas fa-user-graduate"></i> الطّالب: {{exam.user.fullName}}</span>
+              
+                 <span class="card-title" ><i class="fas fa-chalkboard-teacher"></i> المقيّم: {{exam.assessor.fullName}}</span>
+                
+                 <span class="card-title" ><i class="fas fa-calendar-day"></i> {{index}} تاريخ الإختبار: {{formatDate exam.createdAt 'MMMM Do YYYY'}}</span>
+
+                
+            </div>
+            <div class="card-action">
+                <table><tr>
+                <td style="width: 50%;">
+               <form action="/exams/holdExam/{{exam._id}}" method="POST"  >
+                         {{{displayHoldExamButtonForAssessor myUser}}}
+                        
+                    </button>
+                </form>
+                </td>
+                <td style="width: 50%;">
+                 <form action="/exams/endExam/{{exam._id}}" method="POST"  >
+                         {{{displayEndExamButtonForAssessor myUser}}}
+                        
+                    </button>
+                </form>
+                </td>
+                </tr></table>
+            </div>
+        </div>
+    </div>
+
+
+     <div class="col s12 m4">
+        <div class="card center-align">
+            
+            <div class="card-action">
+             <form action="/exams/next/{{exam._id}}" method="POST"  >
+                    <input type="hidden" name="_method" value="PUT"/>
+                    
+                     {{{displayScoringBlocForAssessor myUser questionResult}}}
+                         {{{displayNextButtonForAssessor myUser}}}
+                </form>
+                 <form action="/exams/nextStd/{{exam._id}}" method="POST" >
+                    <input type="hidden" name="_method" value="PUT"/>
+                         {{{displayNextButtonForStudent myUser}}}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+document.getElementById('chatLink').href = "https://cryptic-chamber-30798.herokuapp.com/"+"{{exam.user._id}}";
+
+</script>

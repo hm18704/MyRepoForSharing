@@ -1,0 +1,54 @@
+<h3  style="color:#5a2f2f">قائمة الإختبارات</h3>
+   {{> _add_btn_exam}}
+ <a href='export/data.csv' id='download-link' class="btn btn-float">
+                    <i class="fas fa-file-excel"></i> استخراج قائمة الإختبارات
+                </a>
+
+{{#if exams}}
+<table class="striped">
+    <thead>
+        <tr>
+            <th  style="color:#5a2f2f">تاريخ الاختبار</th>
+            <th style="color:#5a2f2f">الطالب</th>
+            <th style="color:#5a2f2f">المقيّم</th>
+            <th style="color:#5a2f2f">الحالة</th>
+            <th style="color:#5a2f2f">درجة الوعي الصوتي</th>
+            <th style="color:#5a2f2f">درجة الجانب الصرفي</th>
+            <th style="color:#5a2f2f">درجة قراءة الكلمات</th>
+            <th style="color:#5a2f2f">درجة الكتابة</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each exams}}
+        <tr>
+            <td>{{formatDate createdAt 'MMMM Do YYYY'}}</td>
+            <td>{{user.fullName}}</td>
+            <td>{{assessor.fullName}}</td>
+            <td>{{status}}</td>
+            <td><span class="dash-status">{{exam1Score}}</span></td>
+            <td><span class="dash-status">{{exam2Score}}</span></td>
+            <td><span class="dash-status">{{exam3Score}}</span></td>
+            <td><span class="dash-status">{{exam4Score}}</span></td>
+            <td  style="width: 15%;">
+               
+             <a href="/exams/start/{{_id}}" class="btn btn-float">
+                    <i class="fas fa-play"></i>
+                </a>
+                  <a href="/exams/edit/{{_id}}" class="btn btn-float">
+                    <i class="fas fa-eye"></i>
+                </a>
+                <form action="/exams/{{_id}}" method="POST" id="delete-form">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn red">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{else}}
+<p>لا يوجد اختبارات</p>
+{{/if}}

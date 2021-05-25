@@ -1,0 +1,45 @@
+<h3  style="color:#5a2f2f">بنك الاسئلة</h3>
+   {{> _add_btn}}
+{{#if questions}}
+<table class="striped">
+    <thead>
+        <tr>
+            <th  style="color:#5a2f2f">رقم السؤال</th>
+            <th  style="color:#5a2f2f;width:15%">الاختبار</th>
+            <th  style="color:#5a2f2f;width:15%">الجزء</th>
+            <th  style="color:#5a2f2f;width:20%">العنوان</th>
+            <th  style="color:#5a2f2f;width:20%">الدرجة الأعلى</th>
+            <th  style="color:#5a2f2f">الصنف</th>
+          
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each questions}}
+        <tr>
+            <td>{{questionNumber}}</td>
+            <td>{{exam}}</td>
+            <td><span class="dash-status">{{section}}</span></td>
+            <td>{{title}}</td>
+            <td><span class="dash-status">{{maxScore}}</span></td>
+             <td><span class="dash-status">{{type}}</span></td>
+            
+            <td>
+                <a href="/questions/edit/{{_id}}" class="btn btn-float">
+                    <i class="fas fa-edit"></i>
+                </a>
+
+                <form action="/questions/{{_id}}" method="POST" id="delete-form">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn red">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{else}}
+<p>لا يوجد اسئلة</p>
+{{/if}}

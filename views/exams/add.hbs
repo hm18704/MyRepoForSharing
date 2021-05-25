@@ -1,0 +1,35 @@
+<h3  style="color:#5a2f2f">فتح اختبار جديد</h3>
+<div class="row">
+     
+    <form action="/exams" method="POST" class="col s12">
+       
+        
+
+        <div class="row">
+                <div class="input-field">
+                    <input type="date"  class="datepicker" id="createdAt" name="createdAt">
+                    <label for="createdAt">تاريخ الاختبار</label>
+                </div>
+            </div>
+        <div class="row">
+            <div class="input-field">
+                <select id="user" name="user">
+                      {{#each users}}
+                 
+                            <option value="{{_id}}"> {{fullName}} - {{grade}}</option>
+                 
+                     {{/each}}
+                </select>
+                <label for="user">الطالب</label>  
+            </div>
+        </div>
+
+
+    <div class="row">
+            <input type="submit" value="ابدأ" class="btn">
+            <a href="/dashboard" class="btn orange">إلغاء</a>
+        </div>
+    </form>
+       
+       
+</div>

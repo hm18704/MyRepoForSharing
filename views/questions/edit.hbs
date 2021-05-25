@@ -1,0 +1,88 @@
+<h3  style="color:#5a2f2f">تحيين سؤال</h3>
+<div class="row">
+    <form action="/questions/{{question._id}}" method="POST" class="col s12">
+        <input type="hidden" name="_method" value="PUT">
+        
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="questionNumber" name="questionNumber"  value="{{question.questionNumber}}">
+                <label for="questionNumber">رقم السؤال</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <input type="number" id="maxScore" name="maxScore"  value="{{question.maxScore}}">
+                <label for="maxScore">الدرجة الأعلى</label>
+            </div>
+        </div>
+
+         <div class="row">
+            <div class="input-field">
+                <select id="exam" name="exam">
+                     {{#select question.exam}}
+                    <option value="الوعي الصوتي" selected>الوعي الصوتي</option>
+                    <option value="الجانب الصرفي">الجانب الصرفي</option>
+                    <option value="قراءة الكلمات">قراءة الكلمات</option>
+                    <option value="كتابة">كتابة</option>
+                    {{/select}}
+                </select>
+                <label for="exam">الإختبار</label>  
+            </div>
+        </div>
+         <div class="row">
+            <div class="input-field">
+                <input type="text" id="title" name="title" value="{{question.title}}"></input>
+                <label for="title">العنوان</label>
+            </div>
+        </div>
+  <div class="row">
+            <div class="input-field">
+                <select id="section" name="section">
+                      {{#select question.section}}
+                    <option value="حذف" selected>حذف</option>
+                    <option value="دمج">دمج</option>
+                    <option value="فصل">فصل</option>
+                    <option value="تقطيع">تقطيع</option>
+                    <option value="ذاكرة رقمية">ذاكرة رقمية</option>
+                    <option value="تسمية سريعة" >تسمية سريعة</option>
+                    <option value="تعرف الوحدات الصرفية"> تعرف الوحدات الصرفية</option>
+                    <option value="اشتقاق الكلمات من الجذر"> اشتقاق الكلمات من الجذر</option>
+                    <option value="قراءة كلمات غير مرتبطة بوقت">قراءة كلمات غير مرتبطة بوقت</option>
+                    <option value="قراءة كلمات غير حقيقية" >قراءة كلمات غير حقيقية </option>
+                    <option value="الطلاقة في القراءة">الطلاقة في القراءة </option>
+                    <option value="تحديد اسم او صوت الحرف المظلل">تحديد اسم او صوت الحرف المظلل </option>
+                    <option value="تمييز الكلمات المتشابهة كتابيا"> تمييز الكلمات المتشابهة كتابيا</option>
+                    <option value="سرعة تعرف الحروف والمقاطع">سرعة تعرف الحروف والمقاطع</option>
+                     {{/select}}
+                </select>
+                <label for="section">الجزء</label>
+            </div>
+        </div>
+       
+        <div class="row">
+            <div class="input-field">
+                <textarea id="instructions" name="instructions"  style="height: 120px;">{{question.instructions}}</textarea>
+                <label for="instructions">وصف السؤال</label>
+            </div>
+        </div>
+
+ <div class="row">
+            <div class="input-field">
+                <select id="type" name="type">
+                     {{#select question.type}}
+                    <option value="النوع الاول" selected>النوع الاول</option>
+                    <option value="النوع الثاني"> النوع الثاني</option>
+                    <option value="النوع الثالث">النوع الثالث </option>
+                    <option value="النوع الرابع">النوع الرابع</option>
+                    <option value="النوع الخامس">النوع الخامس</option>
+                      {{/select}}
+                </select>
+                <label for="type">نوع السؤال</label>
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" value="حفظ" class="btn">
+            <a href="/questions" class="btn orange">إلغاء</a>
+        </div>
+    </form>
+</div> 

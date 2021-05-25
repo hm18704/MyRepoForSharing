@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="ar-bh">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<link type="text/css" rel="stylesheet" href="/css/styles.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css"
+        integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/style.css">
+    <title>مهاراتنا</title>
+</head>
+
+<body>
+    {{> _header}}
+    <div class="container">
+        {{{body}}}
+    </div>
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.14.1/ckeditor.js"
+     integrity="sha256-bEIQpI72w9NJuIVhTLFUF2/8uxl0u5800r8ddViuv+o=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/script/script.js"></script>   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    
+    <script src="/script/hammer.js"></script>
+    <script src="/script/script.js"></script>
+    <script src="/script/stopwatch.js"></script>
+    <script>
+      //   document.getElementById('download-link').click();
+        M.Sidenav.init(document.querySelector('.sidenav'))
+        M.FormSelect.init(document.querySelector('#status'))
+        M.FormSelect.init(document.querySelector('#sex'))
+        M.FormSelect.init(document.querySelector('#nationality'))
+        M.FormSelect.init(document.querySelector('#grade'))
+        M.FormSelect.init(document.querySelector('#exam'))
+        M.FormSelect.init(document.querySelector('#section'))
+        M.FormSelect.init(document.querySelector('#type'))
+        M.FormSelect.init(document.querySelector('#user'))
+
+
+    </script>
+</body>
+</html>
